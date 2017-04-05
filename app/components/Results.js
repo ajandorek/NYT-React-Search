@@ -1,8 +1,18 @@
 var React = require("react");
+import ResultItems from "./Results_Item";
 
-var Results = React.createClass({
+const Results = (props) => {
+/*
+    console.log(props);
 
-    render: function () {
+    const queryResults = props.articles ? props.articles.map((article) => {
+        console.log(article);
+        // return JSON.stringify(article);
+        return (
+            <ResultItems 
+                article={article}/>
+        )
+    }) : '';*/
 
         return (
             <div className="panel panel-primary">
@@ -11,13 +21,11 @@ var Results = React.createClass({
                 </div>
                 <div className="panel-body">
                     <div className="well">
-                        <p>Test</p>
-                        <button className="btn btn-primary">Save</button>
+                        {props.articles.map(article => <ResultItems key={article._id}article={article}/>)}
                     </div>
                 </div>
             </div>
         );
-    }
-});
+};
 
 module.exports = Results;

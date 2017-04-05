@@ -1,6 +1,6 @@
 var React = require("react");
 
-var Results = React.createClass({
+var Saved = React.createClass({
 
     render: function () {
 
@@ -23,4 +23,4 @@ var Results = React.createClass({
     }
 });
 
-module.exports = Results;
+module.exports = Saved;
