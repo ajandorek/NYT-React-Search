@@ -35,7 +35,18 @@ db.once("open", function() {
 app.get("/", function(req, res) {
   res.sendFile(__dirname + "/public/index.html");
 });
+app.get("/api/saved", function(req, res) {
 
+  // We will find all the records, sort it in descending order, then limit the records to 5
+  Article.find({}).exec(function(err, doc) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.send(doc);
+    }
+  });
+});
 app.post("/api/saved", function(req, res){
     Article.create({
         title: req.body.title,

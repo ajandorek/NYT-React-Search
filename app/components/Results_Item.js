@@ -1,29 +1,11 @@
 import React, { Component } from 'react';
-import axios from axios;
+import axios from 'axios';
+import helper from './utils/helpers'
 
 class ResultItems extends Component {
     constructor(props) {
         super(props);
 
-    }
-    // handleSubmit(e) {
-    //     e.preventDefault();
-    //     var self = this;
-    //     return axios.post('/api/saved', {
-    //         title: self.refs.title,
-    //         date: self.refs.date,
-    //         url: self.refs.url
-    //     }
-    //     )
-    //         .then(function (response) {
-    //             return response.json()
-    //         }).then(function (body) {
-    //             console.log(body);
-    //         });
-    // }
-    handleSubmit(event) {
-        event.preventDefault();
-        console.log("hello");
     }
     render() {
         return (
@@ -33,16 +15,23 @@ class ResultItems extends Component {
                         <div className="media-heading">{this.props.article.headline.main}</div>
                         <div className="media-heading">{this.props.article.pub_date}</div>
                         <div className="media-heading">{this.props.article.web_url}</div>
-                        <form onSubmit={this.handleSubmit}>
-                        {/*<input type="hidden" refs="title" val={this.props.article.headline.main} />
-                            <input type="hidden" refs="date" val={this.props.article.headline.pub_date} />
-                            <input type="hidden" refs="url" val={this.props.article.headline.web_url} />*/}
-                            <button className="btn btn-primary"type= "submit">Save</button>
+                        <form onSubmit={this.handleSubmit.bind(this)}>
+                                <button className="btn btn-primary">Save</button>
                         </form>
                     </div>
                 </div>
-            </li>
+            </li >
         )
+    }
+    handleSubmit(event) {
+        event.preventDefault();
+        
+        helper.postHistory(this.props.article.headline.main, this.props.article.pub_date, this.props.article.web_url);
+
+        //this.setState({ title: this.props.article.headline.main,
+        //     date: this.props.article.pub_date,
+        //     url: this.props.article.web_url
+        //  });
     }
 };
 

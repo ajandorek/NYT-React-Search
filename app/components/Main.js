@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class Main extends Component {
-// var Main = React.createClass({
+    // var Main = React.createClass({
     constructor(props) {
         super(props);
 
@@ -11,7 +11,6 @@ class Main extends Component {
             endYear: ''
         }
     }
-    
     handleChange(event) {
         var newState = {};
         newState[event.target.id] = event.target.value;
@@ -28,49 +27,49 @@ class Main extends Component {
                         <p><em>Search for and annotate Articles of interest</em></p>
                     </div>
                 </div>
-            <div className="panel panel-primary">
-                <div className="panel-heading">
-                    <h3 className="panel-title">Search</h3>
-                </div>
-                <div className="panel-body">
-                    <div className="search-bar input-group">
-                        <label>Topic</label>
-                        <br />
-                        <input
-                            className="form-control"
-                            id="term"
-                            value={this.state.term}
-                            onChange={this.handleChange.bind(this)} />
+                <div className="panel panel-primary">
+                    <div className="panel-heading">
+                        <h3 className="panel-title">Search</h3>
                     </div>
-                    <div className="search-bar input-group">
-                        <label>Start Year</label>
-                        <br />
-                        <input
-                            className="form-control"
-                            id="startYear"
-                            value={this.state.startYear}
-                            onChange={this.handleChange.bind(this)} />
-                    </div>
-                    <div className="search-bar input-group">
-                        <label>End Year</label>
-                        <br />
-                        <input
-                            className="form-control"
-                            id="endYear"
-                            value={this.state.endYear}
-                            onChange={this.handleChange.bind(this)} />
-                    </div>
-                    <button 
-                        className="btn btn-primary"
-                        onClick={this.buttonClick.bind(this)}>
+                    <div className="panel-body">
+                        <div className="search-bar input-group">
+                            <label>Topic</label>
+                            <br />
+                            <input
+                                className="form-control"
+                                id="term"
+                                value={this.state.term}
+                                onChange={this.handleChange.bind(this)} />
+                        </div>
+                        <div className="search-bar input-group">
+                            <label>Start Year</label>
+                            <br />
+                            <input
+                                className="form-control"
+                                id="startYear"
+                                value={this.state.startYear}
+                                onChange={this.handleChange.bind(this)} />
+                        </div>
+                        <div className="search-bar input-group">
+                            <label>End Year</label>
+                            <br />
+                            <input
+                                className="form-control"
+                                id="endYear"
+                                value={this.state.endYear}
+                                onChange={this.handleChange.bind(this)} />
+                        </div>
+                        <button
+                            className="btn btn-primary"
+                            onClick={this.buttonClick.bind(this)}>
                             Search
                         </button>
+                    </div>
+                </div>
+                <div>
+                    {this.props.children}
                 </div>
             </div>
-            <div>
-                    {this.props.children}
-            </div>
-        </div>
         );
     }
     buttonClick(term, startYear, endYear) {

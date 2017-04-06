@@ -1,7 +1,17 @@
 import React from 'react';
+import helper from './utils/helpers'
 
 var Saved = React.createClass({
-
+    componentDidMount: function () {
+        helper.getHistory().then(function (response) {
+            console.log(response);
+            if (response !== this.props.savedArticles) {
+                console.log("Articles", response.data);
+                this.setState({ saved: response.data });
+                console.log(this.state.saved)
+            }
+        }.bind(this));
+    },
     render: function () {
 
         return (
@@ -10,13 +20,17 @@ var Saved = React.createClass({
                     <h3 className="panel-title">Saved Articles</h3>
                 </div>
                 <div className="panel-body">
-                    <div className="panel panel-info">
-                        <div className="panel-heading">Panel heading without title</div>
+                    {this.state && this.state.saved.map(function(saved, i){
+                    return(
+                    <div className="panel panel-info" key={i}>
+                        <div className="panel-heading">{saved.title}</div>
                         <div className="panel-body">
-                            Panel content
+                            <p>Date: {saved.date}</p>
+                            <p>URL: {saved.url}</p>
                         </div>
                     </div>
-
+                    )
+                    })}
                 </div>
             </div>
         );
