@@ -11,10 +11,7 @@ class Main extends Component {
             endYear: ''
         }
     }
-    // getInitialState() {
-    //     return { term: '', startYear: '', endYear: '' };
-    // }
-
+    
     handleChange(event) {
         var newState = {};
         newState[event.target.id] = event.target.value;
