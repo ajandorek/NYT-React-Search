@@ -21,7 +21,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("./public"));
 
-mongoose.connect("mongodb://localhost/nyt-react-search");
+mongoose.connect("mongodb://heroku_3mxtt9k7:30ei2cu4gfitog8c7fsk99kqf2@ds155160.mlab.com:55160/heroku_3mxtt9k7");
 var db = mongoose.connection;
 
 db.on("error", function(err) {
