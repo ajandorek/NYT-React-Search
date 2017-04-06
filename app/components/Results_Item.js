@@ -21,6 +21,10 @@ class ResultItems extends Component {
     //             console.log(body);
     //         });
     // }
+    handleSubmit(event) {
+        event.preventDefault();
+        console.log("hello");
+    }
     render() {
         return (
             <li className="list-group-item">
@@ -29,11 +33,11 @@ class ResultItems extends Component {
                         <div className="media-heading">{this.props.article.headline.main}</div>
                         <div className="media-heading">{this.props.article.pub_date}</div>
                         <div className="media-heading">{this.props.article.web_url}</div>
-                        <form>
-                            <input type="hidden" refs="title" val={this.props.article.headline.main} />
+                        <form onSubmit={this.handleSubmit}>
+                        {/*<input type="hidden" refs="title" val={this.props.article.headline.main} />
                             <input type="hidden" refs="date" val={this.props.article.headline.pub_date} />
-                            <input type="hidden" refs="url" val={this.props.article.headline.web_url} />
-                            <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Save</button>
+                            <input type="hidden" refs="url" val={this.props.article.headline.web_url} />*/}
+                            <button className="btn btn-primary"type= "submit">Save</button>
                         </form>
                     </div>
                 </div>

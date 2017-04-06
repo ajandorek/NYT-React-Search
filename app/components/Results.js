@@ -11,7 +11,7 @@ const Results = (props) => {
                 <div className="panel-body">
                     <div className="well">
                         {props.articles.map(article => <ResultItems key={article._id}article={article}
-                        onClick={this.props.onButtonClick}/>)}
+                        />)}
                     </div>
                 </div>
             </div>
